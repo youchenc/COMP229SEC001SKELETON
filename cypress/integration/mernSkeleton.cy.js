@@ -1,0 +1,43 @@
+describe("mernSkeleton", () => {
+  it("tests mernSkeleton", () => {
+    cy.viewport(754, 665);
+    cy.visit("http://localhost:3000/");
+    cy.get("a:nth-of-type(2) > button").click();
+    cy.get("a:nth-of-type(3) > button").click();
+    cy.get("a:nth-of-type(4) > button").click();
+    cy.get("a:nth-of-type(5) > button").click();
+    cy.get("a:nth-of-type(6) > button").click();
+    cy.get("#email").click();
+    cy.get("#email").type("alice@mail.com");
+    cy.get("#password").click();
+    cy.get("#password").type("alice123");
+    cy.get("#root > div > div button").click();
+    cy.get("div.MuiCardContent-root").click();
+    cy.get("#email").type("");
+    cy.get("div.MuiCardContent-root").click();
+    cy.get("#password").type("");
+    cy.get("#email").click();
+    cy.get("#email").type("youchen@mail");
+    cy.get("#password").click();
+    cy.get("#password").type("youchen123");
+    cy.type("{enter}");
+    cy.get("#root > div > div button").click();
+    cy.get("#password").click();
+    cy.get("#email").click();
+    cy.get("#email").type("youchen@mail.com");
+    cy.get("#root > div > div button").click();
+    cy.get("#email").click();
+    cy.get("#email").click();
+    cy.get("#email").click();
+    cy.get("#root > div").click();
+    cy.get("#email").type("");
+    cy.type("{backspace}");
+    cy.type("{backspace}");
+    cy.get("#root > div").click();
+    cy.get("#password").type("");
+    cy.type("{backspace}");
+    cy.type("{backspace}");
+    cy.type("{backspace}");
+  });
+});
+//# recorderSourceMap=BCBDBEBFBGBHBIBJBKBLBMBNBOBPBQBRBSBTBUBVBWBXAXBYBZBaBbBcBdBeBfBgBBhBBiBAiBBjBAjBBkBBlBBmBAmBBnBAnBBoBA

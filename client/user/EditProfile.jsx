@@ -51,17 +51,24 @@ const jwt = auth.isAuthenticated();
       name: values.name || undefined,
       email: values.email || undefined,
       password: values.password || undefined,
+      seller: values.seller || false,
     };
 
-    update({ userId }, { t: jwt.token }, user).then((data) => {
+    update({
+      //userId
+      userId: jwt.user._id,
+    }, 
+    { t: jwt.token }, user).then((data) => {
       if (data?.error) {
         setValues((prev) => ({ ...prev, error: data.error }));
       } else {
-        setValues((prev) => ({
-          ...prev,
-          userId: data._id,
-          NavigateToProfile: true,
-        }));
+         auth.updateUser(data, () => {
+          setValues({
+            ...values,
+            userId: data._id,
+            NavigateToProfile: true,
+          });
+        });
       }
     });
   };
